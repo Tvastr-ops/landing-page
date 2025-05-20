@@ -92,6 +92,29 @@ header .container {
 .logo {
   font-size: 24px;
   font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--accent-color);
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.logo i {
+  font-size: 28px;
+  color: var(--accent-color);
+}
+
+.logo span {
+  background: linear-gradient(135deg, var(--accent-color), #fff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
 nav ul {
