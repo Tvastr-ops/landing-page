@@ -115,23 +115,78 @@ nav ul li a:hover {
 .hero {
   background-color: var(--primary-color);
   color: var(--text-light);
-  padding: 80px 0;
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(93, 64, 55, 0.8) 0%,
+    var(--primary-color) 100%
+  );
+  z-index: 1;
 }
 
 .hero .container {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 60px;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-content {
   flex: 1;
+  max-width: 600px;
 }
 
 .hero-image {
   flex: 1;
   display: flex;
   justify-content: center;
+  align-items: center;
+  position: relative;
+  max-width: 450px;
+  aspect-ratio: 1;
+  transform: perspective(1000px) rotateY(-5deg);
+  transition: transform 0.3s ease;
+}
+
+.hero-image:hover {
+  transform: perspective(1000px) rotateY(0deg);
+}
+
+.hero-image::before {
+  content: "";
+  position: absolute;
+  inset: -15px;
+  border: 2px solid var(--accent-color);
+  border-radius: 12px;
+  opacity: 0.3;
+  transform: perspective(1000px) rotateY(-5deg);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hero-image:hover::before {
+  opacity: 0.6;
+  transform: perspective(1000px) rotateY(0deg);
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
 }
 
 .hero h1 {
@@ -179,9 +234,24 @@ nav ul li a:hover {
 .card-image {
   height: 200px;
   background-color: var(--secondary-color);
-  background-image: url("https://via.placeholder.com/300x200");
   background-size: cover;
   background-position: center;
+}
+
+.feature-card:nth-child(1) .card-image {
+  background-image: url("https://images.pexels.com/photos/2299028/pexels-photo-2299028.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+}
+
+.feature-card:nth-child(2) .card-image {
+  background-image: url("https://images.pexels.com/photos/271168/pexels-photo-271168.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+}
+
+.feature-card:nth-child(3) .card-image {
+  background-image: url("https://images.pexels.com/photos/1695052/pexels-photo-1695052.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+}
+
+.feature-card:nth-child(4) .card-image {
+  background-image: url("https://images.pexels.com/photos/982612/pexels-photo-982612.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
 }
 
 .feature-card p {
